@@ -9,7 +9,7 @@ export const commands: Record<string, TerminalCommand> = {
     print("  date");
     print("  whoami");
     print("  theme <fg #xxxxxx> <bg #xxxxxx>");
-    print("  dream?!");
+    print("  dream");
     print("  about");
   },
 
