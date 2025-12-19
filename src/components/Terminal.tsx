@@ -219,7 +219,7 @@ export default function Terminal({
       <crtMaterial
         ref={matRef}
         map={textureRef.current!}
-        curvature={0.1}
+        curvature={0.07}
         vignette={0.0}
       />
     </mesh>
