@@ -12,4 +12,5 @@ export default defineConfig({
     }),
     glsl(),
   ],
+  base: "/terminal",
 });
