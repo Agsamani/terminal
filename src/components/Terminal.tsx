@@ -59,7 +59,7 @@ export default function Terminal({
   maxDpr = 2,
 }: Props) {
   const [theme, setTheme] = React.useState({ fg, bg });
-  const engineRef = React.useRef<TerminalEngine>();
+  const engineRef = React.useRef<TerminalEngine | null>(null);
   if (!engineRef.current) {
     engineRef.current = new TerminalEngine({
       commands: commands ?? {},
@@ -67,6 +67,7 @@ export default function Terminal({
         setTheme: (t) => setTheme((prev) => ({ ...prev, ...t })),
       },
     });
+    const engine = engineRef.current!;
 
     figlet.parseFont("Standard", standard);
     figlet
@@ -74,7 +75,7 @@ export default function Terminal({
         font: "Standard",
       })
       .split("\n")
-      .forEach((line) => engineRef.current.print(line));
+      .forEach((line) => engine.print(line));
 
     engineRef.current.print("Welcome traveller!");
     engineRef.current.print("type `help`");
